@@ -1,18 +1,42 @@
 import { useContext, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import SignIn from './components/SignIn'
+import SignIn from './pages/SignIn'
 import { GlobalContext } from './context/globalContext'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Home from './pages/Home'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const {name} = useContext(GlobalContext)
-    console.log(name, 'user')
+
+  const {loginUserState, setLoginUserState} = useContext(GlobalContext)
+
+  const ProtectedRoute = ({ children }) => {
+    if (!loginUserState) {
+      return <Navigate to="/signin" />;
+    }
+
+    return children
+  };
+
+
   return (
-    <div className="App">
-     <h1>singup</h1>
-     <SignIn />
-    </div>
+
+    <Routes>
+      <Route path="/">
+        <Route
+          index
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route path="signin" element={<SignIn />} />
+       
+      </Route>
+    </Routes>
+  
+  // <SignIn />
   )
 }
 
