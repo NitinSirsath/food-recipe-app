@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useContext,useState } from 'react'
 import {auth, googleProvider} from '../firebase.config'
 import { signInWithPopup } from 'firebase/auth'
+import { GlobalContext } from '../context/globalContext'
 
 const SignIn = () => {
-    const [user, setUser] = useState('')
+   
+    const {loginUserState, setLoginUserState} = useContext(GlobalContext)
 
+    // const [loginUserState, setLoginUserState] = useState('')
+    
     const handleClick = () => {
        signInWithPopup(auth, googleProvider).then((data) =>{
-           setUser(data.user.email)
+        setLoginUserState(data.user.email)
            localStorage.setItem('user', data.user.email)
        })
     }
@@ -15,14 +19,14 @@ const SignIn = () => {
     useEffect(() => {
         const user = localStorage.getItem('user')
         if(user){
-            setUser(user)
+            setLoginUserState(user)
         }
     }, [])
 
   return (
     <div>
         SignIn
-        {user ? <h1>{user}</h1> : <button onClick={handleClick}>Sign In</button>}
+        {loginUserState ? <h1>{loginUserState}</h1> : <button onClick={handleClick}>Sign In</button>}
     </div>
   )
 }
