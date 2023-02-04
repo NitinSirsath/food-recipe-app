@@ -1,6 +1,6 @@
 import React,{ createContext, useState,  useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { db } from "../firebase.config";
 
 export const GlobalContext = React.createContext();
 
