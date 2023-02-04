@@ -36,7 +36,7 @@ const RecipePage = () => {
         const recipe = recipes?.find(recipe => recipe.id === id)
         setCurrentRecipe(recipe)
     }
-    console.log(currentRecipe, 'currentRecipe')
+
 
   return (
     <RecipePageContainer>
