@@ -3,7 +3,9 @@ import { GlobalContext } from "../context/globalContext";
 import { useParams } from "react-router-dom";
 import { db } from "../firebase.config";
 import { collection, onSnapshot } from "firebase/firestore";
-import FoodPattern from '../assets/ingredient_pattern.jpg'
+import InreddientPattern from '../assets/ingredient_pattern.jpg'
+import descPattern from '../assets/desc_pattern.jpg'
+import stepPattern from '../assets/steps_pattern.jpg'
 import {
   RecipePageContainer,
   BannerImageContainer,
@@ -12,17 +14,20 @@ import {
   RecipeStepsContainer,
   RecipeLeftSideContainer,
   RecipeRightSideContainer,
-  IngredientCard,
-  IngredientCardbg,
-  IngredientList,
-  IngredientListContainer
+  Card,
+  Cardbg,
+  ListContainer,
+  IngredientListContainer,
+  LoaderContainer
 } from "../styles/recipePage.style";
 import { Typography } from "@mui/material";
+import MaterialLoader from "../components/MaterialLoader";
 
 const RecipePage = () => {
   const { loginUserState } = useContext(GlobalContext);
   const [currentRecipe, setCurrentRecipe] = useState({});
   const [recipes, setRecipes] = useState([]);
+  const [loading, setLoading] = useState(true);
   let { id } = useParams();
 
   const recipesCollectionRef = collection(db, "recipes");
@@ -37,6 +42,7 @@ const RecipePage = () => {
         };
       });
       setRecipes(data);
+      setLoading(false);
     });
   }, []);
 
@@ -51,47 +57,58 @@ const RecipePage = () => {
 
   return (
     <RecipePageContainer>
+      {loading? <LoaderContainer><MaterialLoader /></LoaderContainer> : <>
       <BannerImageContainer background={currentRecipe?.bg} />
       
       <RecipeInfoContainer>
        <RecipeLeftSideContainer>
+      <Card>
+      <Cardbg background={descPattern}>
        <h2>Description</h2>
-        <RecipeDesc>
+       </Cardbg>
+        <ListContainer>
             {currentRecipe?.desc}
-        </RecipeDesc>
-        <h2>Steps to follow</h2>
-        <RecipeStepsContainer>
+        </ListContainer>
+      </Card>
+       <Card>
+       <Cardbg background={stepPattern}>
+       <h2>Steps to follow</h2>
+       </Cardbg>
+        <ListContainer>
             {currentRecipe?.steps?.map((step, index) => {
+                const CapitalFirstLetter = step.charAt(0).toUpperCase() + step.slice(1)
                 return (
-                    <div key={index}>
-                        
-                        <p variant='h6'>{index + 1}.  {step}</p>
+                    <div key={index}> 
+                        <p variant='h6'><span style={{fontWeight : 'bolder'}}>{index + 1}. </span>  {CapitalFirstLetter}</p>
                     </div>
                 )
             })}
-        </RecipeStepsContainer>
+        </ListContainer>
+       </Card>
        </RecipeLeftSideContainer>
        <RecipeRightSideContainer>
-         <IngredientCard>
-            <IngredientCardbg background={FoodPattern}>
+         <Card>
+            <Cardbg background={InreddientPattern}>
          <h2>Ingredients</h2>
                 
-            </IngredientCardbg>
+            </Cardbg>
             <IngredientListContainer>
 
-            <IngredientList>
+            <ListContainer>
                 {currentRecipe?.ingredients?.map((ingredient, index) => {
+                    const CapitalFirstLetter = ingredient.charAt(0).toUpperCase() + ingredient.slice(1)
                     return (
                         <li key={index}>
-                            <span variant='h6'>{ingredient}</span>
+                            <span variant='h6'><span style={{fontWeight : 'bolder'}}>{index + 1}. </span> {CapitalFirstLetter}</span>
                         </li>
                     )
                 })}
-                </IngredientList>
+                </ListContainer>
             </IngredientListContainer>
-         </IngredientCard>
+         </Card>
        </RecipeRightSideContainer>
       </RecipeInfoContainer>
+      </>}
     </RecipePageContainer>
   );
 };

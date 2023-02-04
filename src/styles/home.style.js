@@ -5,10 +5,11 @@ export const Wrapper = styled.div`
 `
 
 export const Heading = styled.h1`
-    text-align: center;
+    text-align: start;
     width: 100%;
     margin: 30px 0px;
-    color: #455A64
+    color: #455A64;
+    padding: 20px 40px;
 `
 
 export const RecipeCardWrapper = styled.div`
@@ -16,4 +17,11 @@ export const RecipeCardWrapper = styled.div`
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
     padding: 20px 40px;
+`
+
+export const LoaderContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 `

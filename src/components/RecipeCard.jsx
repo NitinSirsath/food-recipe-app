@@ -6,6 +6,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const LinkStyle = styled(Link)`
+    text-decoration: none;
+`
 
 export default function RecipeCard({recipe}) {
   return (
@@ -25,8 +30,8 @@ export default function RecipeCard({recipe}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Link to={`/recipe/${recipe?.id}`}><Button size="small" variant='contained'>View</Button></Link>
-        <Button size="small">Delete</Button>
+        <LinkStyle to={`/recipe/${recipe?.id}`}><Button size="medium" variant='contained'>View</Button></LinkStyle>
+        <Button size="medium">Delete</Button>
       </CardActions>
     </Card>
   );

@@ -5,7 +5,8 @@ import {collection,onSnapshot} from 'firebase/firestore'
 import Navbar from '../components/Navbar'
 import { Typography } from '@mui/material'
 import RecipeCard from '../components/RecipeCard'
-import {Wrapper, Heading,RecipeCardWrapper} from '../styles/home.style'
+import {Wrapper, Heading,RecipeCardWrapper,LoaderContainer} from '../styles/home.style'
+import MaterialLoader from '../components/MaterialLoader'
 
 
 const Home = () => {
@@ -56,8 +57,9 @@ const Home = () => {
     console.log(recipes, 'recipes')
 
   return (
+    
     <Wrapper>
-        
+        {loading ? <LoaderContainer><MaterialLoader /></LoaderContainer> : <>
         <Heading>Welcome to recipe WebApp</Heading>
       
         <RecipeCardWrapper>
@@ -65,6 +67,8 @@ const Home = () => {
                 return <RecipeCard recipe={recipe}/>
             })}
         </RecipeCardWrapper>
+        </>}
+        
     </Wrapper>
   )
 }
