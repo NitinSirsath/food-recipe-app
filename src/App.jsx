@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 
 import RecipePage from "./pages/RecipePage";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   const { loginUserState, setLoginUserState } = useContext(GlobalContext);
@@ -37,6 +38,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <RecipePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/aboutus"
+            element={
+              <ProtectedRoute>
+                <AboutUs />
               </ProtectedRoute>
             }
           />

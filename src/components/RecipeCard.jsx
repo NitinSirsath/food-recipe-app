@@ -10,6 +10,7 @@ import styled from 'styled-components';
 
 const LinkStyle = styled(Link)`
     text-decoration: none;
+    margin-right: 10px;
 `
 
 export default function RecipeCard({recipe}) {
@@ -31,7 +32,7 @@ export default function RecipeCard({recipe}) {
       </CardContent>
       <CardActions>
         <LinkStyle to={`/recipe/${recipe?.id}`}><Button size="medium" variant='contained'>View</Button></LinkStyle>
-        <Button size="medium">Delete</Button>
+        <Button size="medium" variant='outlined' color='error'>Delete</Button>
       </CardActions>
     </Card>
   );

@@ -9,7 +9,7 @@ export const Heading = styled.h1`
     width: 100%;
     margin: 30px 0px;
     color: #455A64;
-    padding: 20px 40px;
+    padding: 0px 40px;
 `
 
 export const RecipeCardWrapper = styled.div`

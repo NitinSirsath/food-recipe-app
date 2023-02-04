@@ -64,7 +64,7 @@ const Home = () => {
       
         <RecipeCardWrapper>
             {recipes?.map(recipe => {
-                return <RecipeCard recipe={recipe}/>
+                return <RecipeCard key={recipe.id} recipe={recipe}/>
             })}
         </RecipeCardWrapper>
         </>}
