@@ -9,7 +9,9 @@ import {Wrapper, Heading,RecipeCardWrapper} from '../styles/home.style'
 
 
 const Home = () => {
-    const {loginUserState, setLoginUserState,recipes, setRecipes} = useContext(GlobalContext)
+    const {loginUserState, setLoginUserState} = useContext(GlobalContext)
+
+    const [recipes, setRecipes] = useState([])
 
     
     const [form, setForm] = useState({

@@ -25,7 +25,7 @@ export default function RecipeCard({recipe}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Link to={`/recipe/${recipe?.id}`}><Button size="small">View</Button></Link>
+        <Link to={`/recipe/${recipe?.id}`}><Button size="small" variant='contained'>View</Button></Link>
         <Button size="small">Delete</Button>
       </CardActions>
     </Card>
