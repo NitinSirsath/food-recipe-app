@@ -8,6 +8,7 @@ export const GlobalContext = React.createContext();
 export const GlobalProvider = ({ children }) => {
   const [loginUserState, setLoginUserState] = useState('')
   const [loading, setLoading] = useState(false)
+  const [recipes, setRecipes] = useState([])
   const navigate = useNavigate();
 
 
