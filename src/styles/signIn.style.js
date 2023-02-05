@@ -13,7 +13,7 @@ export const Container = styled.div`
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
     width: 400px;
-    height: 300px;
+   
 
     h2{
         text-align: center;
@@ -38,5 +38,17 @@ export const GoogleSingInContainer = styled.div`
         &:hover{
             transform: scale(1.01);
         }
+    }
+`
+
+export const SpanLink = styled.span`
+    color: #1E88E5;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-weight: 600;
+
+    &:hover{
+        transform: scale(1.01);
+        border-bottom: 2px solid #1E88E5;
     }
 `
