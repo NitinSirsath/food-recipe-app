@@ -37,9 +37,8 @@ function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const { loginUserState, setLoginUserState, handleLogout } =
+  const { loginUserState, handleLogout } =
     useContext(GlobalContext);
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -150,12 +149,13 @@ function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            {/* <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
-            </Tooltip>
-            <Typography onClick={() => handleLogout()}>Sign Out</Typography>
+            </Tooltip> */}
+            <Typography> {loginUserState}</Typography>
+            <Button variant="contained" size="small" color="secondary" onClick={() => handleLogout()}>Sign Out</Button>
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
