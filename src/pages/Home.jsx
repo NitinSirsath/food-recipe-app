@@ -5,27 +5,17 @@ import {collection,onSnapshot} from 'firebase/firestore'
 import Navbar from '../components/Navbar'
 import { Typography } from '@mui/material'
 import RecipeCard from '../components/RecipeCard'
-import {Wrapper, Heading,RecipeCardWrapper,LoaderContainer} from '../styles/home.style'
 import MaterialLoader from '../components/MaterialLoader'
+import RecipeModal from '../components/RecipeModal'
+import {deleteDoc,doc} from 'firebase/firestore'
+import {Wrapper, Heading,RecipeCardWrapper,LoaderContainer,ModalContainer} from '../styles/home.style'
 
 
 const Home = () => {
-    const {loginUserState, setLoginUserState} = useContext(GlobalContext)
-
     const [recipes, setRecipes] = useState([])
-
-    
-    const [form, setForm] = useState({
-        title:'',
-        desc:'',
-        images:[],
-        ingredients:[],
-        steps:[]
-    })
-    const [popupActive, setPopupActive] = useState(false)
     const [loading, setLoading] = useState(true)
     const recipesCollectionRef = collection(db, 'recipes')
-    console.log(loginUserState, 'loginUserState')
+    
     useEffect(() => {
         onSnapshot(recipesCollectionRef, (snapshot) => {
             const data = snapshot.docs.map(doc => {
@@ -41,30 +31,36 @@ const Home = () => {
         
     }, [])
 
-    const handleView = (id) => {
-        const newRecipes = recipes.map(recipe => {
-            if(recipe.id === id){
-                return {
-                    ...recipe,
-                    viewing: !recipe.viewing
-                }
-            }
-            return recipe
-        })
-        setRecipes(newRecipes)
-    }
+    const removeRecipe = id => {
+        deleteDoc(doc(db, "recipes", id))
+      }
 
-    console.log(recipes, 'recipes')
+    // const handleView = (id) => {
+    //     const newRecipes = recipes.map(recipe => {
+    //         if(recipe.id === id){
+    //             return {
+    //                 ...recipe,
+    //                 viewing: !recipe.viewing
+    //             }
+    //         }
+    //         return recipe
+    //     })
+    //     setRecipes(newRecipes)
+    // }
+
+    
 
   return (
     
     <Wrapper>
         {loading ? <LoaderContainer><MaterialLoader /></LoaderContainer> : <>
-        <Heading>Welcome to recipe WebApp</Heading>
-      
+        {/* <Heading>Welcome to recipe WebApp</Heading> */}
+        <ModalContainer>
+        <RecipeModal recipesCollectionRef ={recipesCollectionRef }/>
+        </ModalContainer>
         <RecipeCardWrapper>
             {recipes?.map(recipe => {
-                return <RecipeCard key={recipe.id} recipe={recipe}/>
+                return <RecipeCard removeRecipe={removeRecipe} key={recipe.id} recipe={recipe}/>
             })}
         </RecipeCardWrapper>
         </>}

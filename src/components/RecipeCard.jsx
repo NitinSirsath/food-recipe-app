@@ -13,7 +13,7 @@ const LinkStyle = styled(Link)`
     margin-right: 10px;
 `
 
-export default function RecipeCard({recipe}) {
+export default function RecipeCard({recipe, removeRecipe}) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -32,7 +32,7 @@ export default function RecipeCard({recipe}) {
       </CardContent>
       <CardActions>
         <LinkStyle to={`/recipe/${recipe?.id}`}><Button size="medium" variant='contained'>View</Button></LinkStyle>
-        <Button size="medium" variant='outlined' color='error'>Delete</Button>
+        <Button size="medium" variant='outlined' color='error' onClick={() => removeRecipe(recipe.id)}>Delete</Button>
       </CardActions>
     </Card>
   );

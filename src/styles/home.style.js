@@ -25,3 +25,10 @@ export const LoaderContainer = styled.div`
     align-items: center;
     height: 100vh;
 `
+
+export const ModalContainer = styled.div`
+    display: flex;
+    justify-content: flex-start;
+
+    margin: 24px 40px;
+`
