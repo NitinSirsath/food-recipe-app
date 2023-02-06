@@ -23,6 +23,19 @@ const LinkStyle = styled(Link)`
     text-decoration: none;
 `
 
+const LoginInfoContainer = styled.div`
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    @media (max-width: 850px){
+
+        display: none;
+    }
+
+    
+`
+
 const pages = [
   {
     name: "Home",
@@ -109,6 +122,7 @@ function Navbar() {
                 display: { xs: "block", md: "none" },
               }}
             >
+                
               {pages.map((page) => (
                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
                   <LinkStyle to={page.path}>
@@ -116,6 +130,13 @@ function Navbar() {
                   </LinkStyle>
                 </MenuItem>
               ))}
+                <MenuItem>
+                <Typography textAlign="center">{loginUserState}</Typography>
+                </MenuItem>
+             
+                <MenuItem>
+                <Button variant="contained" size="small" color="secondary" onClick={() => handleLogout()}>Sign Out</Button>
+                </MenuItem>
             </Menu>
           </Box>
           <BreakfastDiningIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
@@ -139,8 +160,10 @@ function Navbar() {
             FOODIE
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+         
             {pages.map((page) => (
               <LinkStyle to={page.path} key={page.name}>
+                
               <Button
                 
                 onClick={handleCloseNavMenu}
@@ -153,13 +176,14 @@ function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            {/* <Tooltip title="Open settings">
+            <LoginInfoContainer>
+            <Tooltip title='User Settings'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt={loginUserState} src="/static/images/avatar/2.jpg" />
               </IconButton>
-            </Tooltip> */}
-            <Typography> {loginUserState}</Typography>
-            <Button variant="contained" size="small" color="secondary" onClick={() => handleLogout()}>Sign Out</Button>
+            </Tooltip>
+            
+            </LoginInfoContainer>
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
@@ -176,11 +200,14 @@ function Navbar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem>
+                <Typography textAlign="center">{loginUserState}</Typography>
                 </MenuItem>
-              ))}
+             
+                <MenuItem>
+                <Button variant="contained" size="small" color="secondary" onClick={() => handleLogout()}>Sign Out</Button>
+                </MenuItem>
+             
             </Menu>
           </Box>
         </Toolbar>

@@ -28,7 +28,7 @@ export const RecipeCardWrapper = styled.div`
         gap: 40px;
     }
     @media screen and (max-width: 800px){
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 30px;
     }
     @media screen and (max-width: 467px){

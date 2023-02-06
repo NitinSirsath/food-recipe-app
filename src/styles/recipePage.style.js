@@ -24,6 +24,12 @@ margin: 20px auto;
   display: flex;
   justify-content: center;
   width: 80%;
+
+  @media only screen and (max-width: 768px) {
+    margin: 10px auto;
+    flex-direction: column;
+    
+  }
   
 
   h2{
@@ -37,6 +43,14 @@ export const RecipeLeftSideContainer = styled.div`
     flex: 0.5;
     width: 59%;
     padding: 10px 30px;
+    
+    @media only screen and (max-width: 768px) {
+        padding: 5px 10px;
+
+
+width: 100%;
+}
+
     
     `
 export const RecipeRightSideContainer = styled.div`
