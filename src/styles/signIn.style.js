@@ -6,6 +6,10 @@ export const Wrapper = styled.div`
     align-items: center;
     background-color: #E3F2FD;
     height: 100vh;
+
+    @media only screen and (max-width: 868px) {
+        padding: 20px;
+    }
 `
 export const Container = styled.div`
     padding: 10px 20px;
