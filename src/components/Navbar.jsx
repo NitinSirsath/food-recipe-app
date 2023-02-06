@@ -16,6 +16,8 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { GlobalContext } from "../context/globalContext";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import SoupKitchenIcon from '@mui/icons-material/SoupKitchen';
+import BreakfastDiningIcon from '@mui/icons-material/BreakfastDining';
 
 const LinkStyle = styled(Link)`
     text-decoration: none;
@@ -58,7 +60,8 @@ function Navbar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+        
+          <BreakfastDiningIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -74,7 +77,7 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            FOODIE
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -115,7 +118,8 @@ function Navbar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          {/* <BreakfastDiningIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
+          {/* <SoupKitchenIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Typography
             variant="h5"
             noWrap
