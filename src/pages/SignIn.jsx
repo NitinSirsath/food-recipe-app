@@ -38,12 +38,12 @@ const SignIn = () => {
     setShowNewLogin(!showNewLogin);
   }
 
-  console.log(showNewLogin, 'showNewLogin')
+
 
   return (
     <Wrapper>
       <Container>
-        <h2>Sing In</h2>
+        <h2>Sign In</h2>
         {err && <span>Something went wrong</span>}
         <GoogleSingInContainer onClick={handleClick}>
           <GoogleIcon sx={{ fontSize: 40, color: blue[500] }} />
