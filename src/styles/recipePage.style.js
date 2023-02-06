@@ -25,7 +25,7 @@ margin: 20px auto;
   justify-content: center;
   width: 80%;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 868px) {
     margin: 10px auto;
     flex-direction: column;
     
@@ -44,7 +44,7 @@ export const RecipeLeftSideContainer = styled.div`
     width: 59%;
     padding: 10px 30px;
     
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 868px) {
         padding: 5px 10px;
 
 
