@@ -34,7 +34,7 @@ const AboutUs = () => {
             Get this application source code from <a href="https://github.com/NitinSirsath/food-recipe-app" target="_blank">here</a> <br />
           </p>
 
-          <h3>Check out my Portfolio site <a href="https://github.com/NitinSirsath/portolio-next" target="_blank">here</a></h3>
+          <h3>Check out my Portfolio site <a href="https://portfolio.nitinsirsath.vercel.app/" target="_blank">here</a></h3>
         </div>
     </Container>
   )
