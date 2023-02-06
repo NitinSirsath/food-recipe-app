@@ -118,7 +118,7 @@ function Navbar() {
               ))}
             </Menu>
           </Box>
-          {/* <BreakfastDiningIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
+          <BreakfastDiningIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           {/* <SoupKitchenIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Typography
             variant="h5"
@@ -136,7 +136,7 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            FOODIE
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (

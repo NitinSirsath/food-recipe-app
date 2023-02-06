@@ -10,6 +10,11 @@ export const Heading = styled.h1`
     margin: 30px 0px;
     color: #455A64;
     padding: 0px 40px;
+
+    @media screen and (max-width: 467px){
+        margin: 10px 0px;
+        padding: 0px 10px;
+    }
 `
 
 export const RecipeCardWrapper = styled.div`
@@ -17,6 +22,19 @@ export const RecipeCardWrapper = styled.div`
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
     padding: 20px 40px;
+    
+    @media screen and (max-width: 1000px){
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+    @media screen and (max-width: 800px){
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    @media screen and (max-width: 467px){
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
 `
 
 export const LoaderContainer = styled.div`

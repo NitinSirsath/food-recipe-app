@@ -23,6 +23,10 @@ const Form = styled.form`
     /* align-items: center; */
     margin-top: 17px;
 
+    @media screen and (max-width: 468px){
+       
+    }
+
     div{
         width: 100%;
     }
@@ -33,6 +37,11 @@ const MappingContainers = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    /* @media (max-width: 468px){
+        flex-direction: row;
+        align-items: center;
+    } */
 `
 
 const MappingContainerWrapper = styled.div`
@@ -50,6 +59,11 @@ const style = {
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+
+    '@media screen and (max-width: 468px)': {
+        width: '350px',
+        
+    }
 };
 
 export default function RecipeModal({recipesCollectionRef }) {
@@ -227,8 +241,8 @@ const handleSubmit = e => {
             </MappingContainerWrapper>
 
             <div className="buttons">
-              <Button variant="outlined" sx={{marginRight: '10px'}} type="submit">Submit</Button>
-              <Button variant="outlined" type="button" onClick={handleOpen}>Close</Button>
+              <Button variant="contained" sx={{marginRight: '10px'}} type="submit">Submit</Button>
+              <Button variant="outlined" color='error' type="button" onClick={handleOpen}>Close</Button>
             </div>
 
           </Form>
