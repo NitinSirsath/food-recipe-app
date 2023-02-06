@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "build/food-recipe-app",
+    "public": "build/food-recipe",
     "ignore": [
       "firebase.json",
       "**/.*",
