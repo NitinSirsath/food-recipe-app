@@ -34,6 +34,9 @@ export const GoogleSingInContainer = styled.div`
     gap: 10px;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background : ghostwhite;
+    padding : 0px 5px;
+    border-radius: 5px;
 
     h3{
         background-color: transparent;
